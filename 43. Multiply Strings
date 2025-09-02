@@ -1,0 +1,6 @@
+In Cpp here is number of line of code for this question because in cpp the memory or limit of int is way smallewr than python so we did the question in python only
+
+class Solution(object):
+    def multiply(self, num1, num2):
+        
+        return str(int(num1) * int(num2))
