@@ -1,0 +1,42 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int median(vector<int> arr) {
+    int n = arr.size();
+
+    if (n == 0) return -1; // edge case: empty vector
+
+    // ? sort the array before finding median
+    sort(arr.begin(), arr.end());
+
+    if (n == 1) {
+        return arr[0];
+    } else {
+        if (n % 2 != 0) {
+            int pos = (n + 1) / 2;
+            return arr[pos - 1];
+        } else {
+            int ip = n / 2;
+            int fp = (arr[ip] + arr[ip - 1]) / 2;
+            return fp;
+        }
+    }
+}
+
+vector<int> findMedian(vector<int> &arr, int n) {
+    // ? min-heap is unnecessary for your logic ? you just want to insert and take median
+    vector<int> help;
+    vector<int> res;
+
+    for (int i = 0; i < n; i++) {
+        // ? add current element to help vector
+        help.push_back(arr[i]);
+
+        // ? sort help for correct median
+        
+        int ma = median(help);
+        res.push_back(ma);
+    }
+
+    return res;
+}
